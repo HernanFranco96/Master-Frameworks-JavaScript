@@ -1,16 +1,12 @@
-
 <app-header></app-header>
 <app-slider></app-slider>
 
 <div class="center">
    <section id="content">
-      <h1>
-         Bienvenido al {{ title }}
-      </h1>
-      <hr>
+      
+      <!-- Detecta que ruta ahi cargada y que componente ahi asociado y lo carga en esta etiqueta -->
+      <router-outlet></router-outlet>
 
-      <!-- Prueba con componentes -->
-      <my-component></my-component>
    </section>
    
    <app-sidebar></app-sidebar>
