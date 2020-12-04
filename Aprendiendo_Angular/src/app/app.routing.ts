@@ -18,6 +18,7 @@ const appRoutes: Routes = [
    {path: 'formulario', component: FormularioComponent},
    {path: 'peliculas', component: PeliculasComponent},
    {path: 'pagina-de-pruebas', component: PaginaComponent},
+   {path: 'pagina-de-pruebas/:nombre/:apellido', component: PaginaComponent}, // Parametro opcional
    {path: '**', component: ErrorComponent} // Si la pagina no existe, carga el componente Error
 ];
 
