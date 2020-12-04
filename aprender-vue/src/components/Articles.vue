@@ -1,36 +1,47 @@
 <template>
-  <div>
-    <article
-      class="article-item"
-      v-for="article in articles"
-      :key="article._id"
-    >
-      <div class="image-wrap">
-        <img
-          :src="'http://localhost:3900/api/get-image/' + article.image"
-          :alt="article.title"
-          v-if="article.image"
-        />
-        <img
-          src="../assets/image/bosque.jpg"
-          :alt="article.title"
-          v-if="!article.image"
-        />
-      </div>
+  <section id="articles-component">
 
-      <h2>{{ article.title }}</h2>
-      <span class="date">{{ article.date }}</span>
+    <div id="articles-list" v-if="articles && articles.length >= 1">
+      <article
+        class="article-item"
+        v-for="article in articles"
+        :key="article._id"
+      >
+        <div class="image-wrap">
+          <img
+            :src="'http://localhost:3900/api/get-image/' + article.image"
+            :alt="article.title"
+            v-if="article.image"
+          />
+          <img
+            src="../assets/image/bosque.jpg"
+            :alt="article.title"
+            v-if="!article.image"
+          />
+        </div>
 
-      <a href="article.html">Leer más</a>
+        <h2>{{ article.title }}</h2>
+        <span class="date">{{ article.date | moment('from', 'now')}}</span>
 
-      <div class="clearfix"></div>
-    </article>
-  </div>
+        <a href="article.html">Leer más</a>
+
+        <div class="clearfix"></div>
+      </article>
+    </div>
+
+    <div v-else-if="articles && articles < 1">
+      No hay articulos para mostrar.
+    </div>
+
+    <div v-else>
+      Cargando...
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: "Articles",
-  props: ['articles']
+  props: ["articles"],
 };
 </script>

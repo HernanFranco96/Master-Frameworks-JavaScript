@@ -3,6 +3,9 @@ import App from './App.vue'
 import VueRouter from 'vue-router';
 import Vuelidate from 'vuelidate';
 import axios from "axios";
+import VueMoment from 'vue-moment';
+import moment from 'moment';
+import 'moment/locale/es';
 import LastArticles from './components/LastArticles.vue';
 import MiComponente from './components/MiComponente.vue';
 import HelloWorld from './components/HelloWorld.vue';
@@ -17,6 +20,9 @@ Vue.config.productionTip = false
 Vue.use(VueRouter);
 Vue.use(Vuelidate);
 Vue.use(axios);
+Vue.use(VueMoment, {
+  moment
+});
 
 // Le indicamos a axios la ruta por default
 axios.defaults.baseURL='http://localhost:3900/api/';
